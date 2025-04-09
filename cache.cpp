@@ -16,7 +16,7 @@ void lruCache::insert(const std::string &filePath)
         return;
     }
 
-/*    if (fileMap.find(filePath) != fileMap.end()) {
+    if (fileMap.find(filePath) != fileMap.end()) {
         cacheLruList.erase(fileMap[filePath]);
     } else if (cacheLruList.size() >= cacheSize) {
         fileMap.erase(cacheLruList.back().filePath);
@@ -24,7 +24,6 @@ void lruCache::insert(const std::string &filePath)
         cacheLruList.pop_back();
     }
 
- */   
     cacheLruList.push_front({filePath, std::time(nullptr), st});
     fileMap[filePath] = cacheLruList.begin();
 
